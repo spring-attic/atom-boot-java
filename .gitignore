@@ -1,3 +1,6 @@
-.idea/
-server/
-node_modules/
+/.idea
+/node_modules
+/server
+*.tgz
+*.iml
+*.log

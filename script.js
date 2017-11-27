@@ -15,7 +15,7 @@ const serverDownloadUrl = PROPERTIES.jarUrl;
 
 const serverHome = path.join(__dirname, 'server');
 
-const localFileName = path.join(serverHome, 'boot-java-language-server.jar');
+const localFileName = path.join(serverHome, 'bosh-language-server.jar');
 
 fileExists(localFileName).then(exists => {
    if (!exists) {
