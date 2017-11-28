@@ -1,54 +1,30 @@
 {
-  "name": "bosh-yaml",
+  "name": "boot-java",
   "main": "./lib/main",
   "version": "0.1.0",
-  "description": "Provides validation and content assist for various Bosh configuration files",
-  "repository": "https://github.com/spring-projects/atom-bosh",
+  "description": "Spring Boot support for Atom",
+  "repository": "https://github.com/spring-projects/atom-boot-java",
   "icon": "icon.png",
   "license": "MIT",
   "engines": {
     "atom": ">=1.21.0"
   },
   "files": [
-    "grammars/",
-    "settings/",
     "lib/",
     "server/",
     "properties.json"
   ],
+  "configSchema": {
+    "boot-hints.on": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/Disable Spring running Boot application live hints decorators in the source code"
+    }
+  },
   "dependencies": {
     "atom-package-deps": "^4.6.0",
     "download": "^6.2.5",
     "pivotal-atom-languageclient-commons": "0.0.17"
-  },
-  "configSchema": {
-    "bosh": {
-      "type": "object",
-      "title": "Bosh CLI Configuration",
-      "properties": {
-        "cli.command": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": "bosh",
-          "description": "Path to an executable to launch the bosh cli V2. A V2 cli is required! Set this to null to completely disable all editor features that require access to the bosh director"
-        },
-        "cli.target": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null,
-          "description": "Specifies the director/environment to target when executing bosh cli commands. I.e. this value is passed to the CLI via `-e` parameter."
-        },
-        "cli.timeout": {
-          "type": "integer",
-          "default": 3,
-          "description": "Number of seconds before CLI commands are terminated with a timeout"
-        }
-      }
-    }
   },
   "devDependencies": {
     "coffeelint": "^1.10.1"
@@ -58,7 +34,8 @@
     "postinstall": "node script.js"
   },
   "package-deps": [
-    "atom-ide-ui"
+    "atom-ide-ui",
+    "ide-java"
   ],
   "consumedServices": {
     "linter-indie": {
